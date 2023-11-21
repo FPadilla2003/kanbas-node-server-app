@@ -4,6 +4,7 @@ import HelloRoutes from "./hello.js";
 import Lab5 from "./lab5.js";
 import CourseRoutes from "./courses/routes.js";
 import cors from "cors";
+import session from "express-session";
 import "dotenv/config";
 
 const app = express();
@@ -16,4 +17,4 @@ CourseRoutes(app);
 Lab5(app);
 HelloRoutes(app);
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
