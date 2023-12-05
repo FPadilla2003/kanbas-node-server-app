@@ -1,4 +1,4 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import session from "express-session";
 import express from "express";
 import HelloRoutes from "./hello.js";
@@ -13,6 +13,8 @@ import ModuleRoutes from "./modules/routes.js";
 import UserRoutes from "./users/routes.js";
 
 const app = express();
+
+dotenv.config();
 
 app.use(
     cors({
@@ -39,7 +41,7 @@ app.use(session(sessionOptions));
 
 import mongoose from "mongoose";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas';
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://localhost:27017/kanbas";
 mongoose.connect(CONNECTION_STRING);
 
 app.use(express.json());
